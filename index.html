@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me ajude a conquistar a realeza</title>
+    <style>
+        body {
+            background-image: url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/122190057.jpg?k=8fff4b7444717ab38beed6f215693ab73636c68ef77e28653e8a08d1a2aa5b2c&o=&hp=1');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: purple;
+        }
+        .section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .column {
+            flex: 1;
+            margin: 0 10px;
+        }
+        .column h3 {
+            margin-bottom: 10px;
+        }
+        .column label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .column input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .column input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #000;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Me ajude a conquistar a realeza</h2>
+        <form id="optionsForm">
+            <div class="section">
+                <div class="column">
+                    <h3>Comidas</h3>
+                    <label><input type="checkbox" name="comidas" value="Churrasco"> Churrasco</label>
+                    <label><input type="checkbox" name="comidas" value="Lasanha"> Lasanha</label>
+                    <label><input type="checkbox" name="comidas" value="Parmegiana"> Parmegiana</label>
+                    <label><input type="checkbox" name="comidas" value="Pizza"> Pizza</label>
+                </div>
+                <div class="column">
+                    <h3>Bebidas</h3>
+                    <label><input type="checkbox" name="bebidas" value="Água"> Água</label>
+                    <label><input type="checkbox" name="bebidas" value="Cerveja"> Cerveja</label>
+                    <label><input type="checkbox" name="bebidas" value="Vinho Suave"> Vinho Suave</label>
+                    <label><input type="checkbox" name="bebidas" value="Vinho Tinto"> Vinho Tinto</label>
+                </div>
+                <div class="column">
+                    <h3>Doces</h3>
+                    <label><input type="checkbox" name="doces" value="Bolo de Chocolate"> Bolo de Chocolate</label>
+                    <label><input type="checkbox" name="doces" value="Brigadeiro"> Brigadeiro</label>
+                    <label><input type="checkbox" name="doces" value="Pudim"> Pudim</label>
+                    <label><input type="checkbox" name="doces" value="Sorvete"> Sorvete</label>
+                </div>
+                <div class="column">
+                    <h3>Salgados</h3>
+                    <label><input type="checkbox" name="salgados" value="Coxinha"> Coxinha</label>
+                    <label><input type="checkbox" name="salgados" value="Empada"> Empada</label>
+                    <label><input type="checkbox" name="salgados" value="Sortidos"> Sortidos</label>
+                    <label><input type="checkbox" name="salgados" value="Pastel"> Pastel</label>
+                </div>
+                <div class="column">
+                    <h3>Itens Essenciais</h3>
+                    <input type="text" id="itens-essenciais" name="itens-essenciais" placeholder="Digite aqui">
+                </div>
+            </div>
+            <button type="button" onclick="submitForm()">Enviar</button>
+        </form>
+    </div>
+    <script>
+        function submitForm() {
+            const comidas = document.querySelectorAll('input[name="comidas"]:checked');
+            const bebidas = document.querySelectorAll('input[name="bebidas"]:checked');
+            const doces = document.querySelectorAll('input[name="doces"]:checked');
+            const salgados = document.querySelectorAll('input[name="salgados"]:checked');
+            const itensEssenciais = document.getElementById('itens-essenciais').value;
+
+            let selectedOptions = '';
+
+            if (comidas.length > 0) {
+                selectedOptions += 'Comidas:\n';
+                comidas.forEach((item) => selectedOptions += `- ${item.value}\n`);
+            }
+
+            if (bebidas.length > 0) {
+                selectedOptions += 'Bebidas:\n';
+                bebidas.forEach((item) => selectedOptions += `- ${item.value}\n`);
+            }
+
+            if (doces.length > 0) {
+                selectedOptions += 'Doces:\n';
+                doces.forEach((item) => selectedOptions += `- ${item.value}\n`);
+            }
+
+            if (salgados.length > 0) {
+                selectedOptions += 'Salgados:\n';
+                salgados.forEach((item) => selectedOptions += `- ${item.value}\n`);
+            }
+
+            if (itensEssenciais) {
+                selectedOptions += `Itens Essenciais:\n- ${itensEssenciais}\n`;
+            }
+
+            if (selectedOptions === '') {
+                alert('Por favor, selecione ao menos uma opção.');
+                return;
+            }
+
+            const whatsappLink = `https://api.whatsapp.com/send?phone=55051989598863&text=${encodeURIComponent(selectedOptions)}`;
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</body>
+</html>
