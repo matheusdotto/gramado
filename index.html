@@ -40,8 +40,8 @@
         }
         .column {
             flex: 1;
-            min-width: 200px;
             margin: 10px;
+            min-width: 200px;
             box-sizing: border-box;
         }
         .column h3 {
@@ -77,9 +77,12 @@
             font-size: 18px;
         }
         @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                align-items: stretch;
+            }
             .column {
-                flex: 1 1 100%;
-                min-width: 100%;
+                margin: 10px 0;
             }
         }
     </style>
@@ -93,7 +96,7 @@
                     <h3>Comidas</h3>
                     <label><input type="checkbox" name="comidas" value="Churrasco"> Churrasco</label>
                     <label><input type="checkbox" name="comidas" value="Lasanha"> Lasanha</label>
-                    <label><input type="checkbox" name="comidas" value="Feijoada"> Feijoada</label>
+                    <label><input type="checkbox" name="comidas" value="Parmegiana"> Parmegiana</label>
                     <label><input type="checkbox" name="comidas" value="Pizza"> Pizza</label>
                 </div>
                 <div class="column">
