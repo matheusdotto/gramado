@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Me ajude a conquistar a realeza</title>
-    <title>Vamos pra Gramado</title>
-
     <style>
         body {
             background-image: url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/122190057.jpg?k=8fff4b7444717ab38beed6f215693ab73636c68ef77e28653e8a08d1a2aa5b2c&o=&hp=1');
@@ -15,6 +13,7 @@
             padding: 20px;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -28,9 +27,9 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
+            text-align: center;
         }
         h2 {
-            text-align: center;
             color: purple;
             margin: 0 0 20px;
         }
@@ -78,6 +77,18 @@
             color: white;
             font-size: 18px;
         }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         @media (max-width: 768px) {
             .section {
                 flex-direction: column;
@@ -86,12 +97,23 @@
             .column {
                 margin: 10px 0;
             }
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-container img {
+                width: 100px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Me ajude a conquistar a realeza</h2>
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/matheusdotto/gramado/master/Imagem%20do%20WhatsApp%20de%202024-07-17%20%C3%A0(s)%2014.25.05_ced480ad.jpg" alt="Imagem 1">
+            <img src="https://raw.githubusercontent.com/matheusdotto/gramado/master/Imagem%20do%20WhatsApp%20de%202024-07-22%20%C3%A0(s)%2018.37.48_5030b256.jpg" alt="Imagem 2">
+        </div>
         <form id="optionsForm">
             <div class="section">
                 <div class="column">
@@ -119,7 +141,7 @@
                     <h3>Salgados</h3>
                     <label><input type="checkbox" name="salgados" value="Coxinha"> Coxinha</label>
                     <label><input type="checkbox" name="salgados" value="Empada"> Empada</label>
-                    <label><input type="checkbox" name="salgados" value="Kibe"> Kibe</label>
+                    <label><input type="checkbox" name="salgados" value="Variados"> Variados</label>
                     <label><input type="checkbox" name="salgados" value="Pastel"> Pastel</label>
                 </div>
                 <div class="column">
